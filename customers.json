@@ -1,0 +1,13 @@
+ [{
+   "name": "Elaine Rushmore",
+   "city": "United Kingdom",
+   "occupation": "blacksmith"
+ },{
+   "name": "Ryan Drush",
+   "city": "United State of America",
+   "occupation": "hairdresser"
+ },{
+   "name": "Alex Smith",
+   "city": "United Kingdom",
+   "occupation": "floor manager"
+ }]

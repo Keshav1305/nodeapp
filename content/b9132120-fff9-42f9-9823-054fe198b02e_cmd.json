@@ -1,0 +1,94 @@
+{
+  "rev": "10-d15506ec0809493db95e5cb3e981ead5",
+  "thumbnail": {
+    "id": "59c9e658-5191-46ba-ad57-7e5f9a009dc0",
+    "url": "/authoring/v1/resources/636f70c8-6118-4f84-82b7-71242ae76f83?fit=inside%7C220:145"
+  },
+  "creator": "Adarsh Bhautoo",
+  "keywords": [],
+  "kind": [],
+  "created": "2021-07-19T16:53:49.584Z",
+  "libraryId": "77d05f48-8ade-4160-be16-09a97605c322",
+  "creatorId": "aec2c772-3e5a-459c-ab11-d9c5d520ab1f",
+  "description": "",
+  "lastModifier": "Adarsh Bhautoo",
+  "locale": "en",
+  "classification": "content",
+  "type": "Logo card",
+  "tags": [],
+  "elements": {
+    "page": {
+      "elementType": "reference"
+    },
+    "text": {
+      "elementType": "formattedtext",
+      "value": "<p><strong>MOVENTIG</strong> is indicated for the treatment of opioid-induced constipation (OIC) in adult patients who have had an inadequate response to laxative(s).<sup>3</sup></p><p><a href=\"/our-products/gastrointestinal/opioid-induced-constipation/moventig/adverse-event-reporting-and-prescribing-information\">Click here</a> for prescribing and adverse event reporting information.</p>"
+    },
+    "logoImage": {
+      "mode": "shared",
+      "renditions": {
+        "default": {
+          "width": 1465,
+          "source": "/authoring/v1/resources/636f70c8-6118-4f84-82b7-71242ae76f83",
+          "height": 504
+        }
+      },
+      "asset": {
+        "fileName": "Moventig_Logo.png",
+        "altText": "",
+        "fileSize": 107728,
+        "width": 1465,
+        "mediaType": "image/png",
+        "id": "59c9e658-5191-46ba-ad57-7e5f9a009dc0",
+        "resourceUri": "/authoring/v1/resources/636f70c8-6118-4f84-82b7-71242ae76f83",
+        "height": 504
+      },
+      "elementType": "image"
+    },
+    "link": {
+      "elementType": "link",
+      "linkURL": "/our-products/gastrointestinal/opioid-induced-constipation/moventig"
+    },
+    "category": {
+      "elementType": "text",
+      "value": "OPIOID-INDUCED CONSTIPATION"
+    },
+    "title": {
+      "elementType": "text",
+      "value": ""
+    },
+    "iconImage": {
+      "elementType": "image"
+    },
+    "cardType": {
+      "elementType": "optionselection"
+    }
+  },
+  "name": "UK_OP Landing Page_Gastrointestinal_OIC_Moventig",
+  "lastModifierId": "aec2c772-3e5a-459c-ab11-d9c5d520ab1f",
+  "typeId": "ba83d64f-ebb6-406d-8ce6-65899916da6f",
+  "links": {
+    "thumbnail": {
+      "href": "/authoring/v1/resources/636f70c8-6118-4f84-82b7-71242ae76f83?fit=inside%7C220:145"
+    },
+    "createDraft": {
+      "href": "/authoring/v1/content/b9132120-fff9-42f9-9823-054fe198b02e/create-draft"
+    },
+    "retire": {
+      "href": "/authoring/v1/changes/content/b9132120-fff9-42f9-9823-054fe198b02e/status/retire"
+    },
+    "self": {
+      "href": "/authoring/v1/content/b9132120-fff9-42f9-9823-054fe198b02e"
+    },
+    "type": {
+      "href": "/authoring/v1/types/ba83d64f-ebb6-406d-8ce6-65899916da6f"
+    }
+  },
+  "id": "b9132120-fff9-42f9-9823-054fe198b02e",
+  "lastModified": "2023-01-20T15:16:58.457Z",
+  "systemModified": "2023-01-20T15:16:58.457Z",
+  "publishing": {
+    "status": "not-available"
+  },
+  "status": "ready"
+}
