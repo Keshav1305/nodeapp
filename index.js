@@ -13,23 +13,38 @@ http
     //check if the user is looking for the help url path
     if (url == "/help") {
       //write a response to send to the client
-      let contextOptions = {
+      let contextOptions = { //context url options not working 
         urls: [
-          "https://content-eu-1.content-cms.com/api/veverververe-59b3-4b9b-b542-612ac16a7b39",
+          "https://content-eu-1.content-cms.com/api/a590dc33-59b3-4b9b-b542-612ac16a7b39", 
         ],
       };
+
       let x = new wchtoolsAPI(contextOptions);
       let context = x.getContext();
+
+      /**
+       * define apiOptions object to send to handlelogin function
+       * contains username and password
+       */
       let apiOptions = {
         username: "aviraj.ramhith@hangarww.com",
         password: "Keshav@2021",
       };
+
+      /**
+       * change environment by changing x-ibm-dx-tenant-base-url in the context
+       */
+      context['x-ibm-dx-tenant-base-url'] = "https://content-eu-1.content-cms.com/api/a590dc33-59b3-4b9b-b542-612ac16a7b39";
       handleLogin(context, apiOptions)
         .then(function (opts) {
-          return x.pushAllItems(opts);
+          x.pushModifiedItems(opts);
+          return opts;
+        }).then(function(opts) {
+          x.pushAllItems(opts);
+          return opts;
         })
         .catch(function (err) {
-          console.log(err)
+          // console.log(err)
         });
       //  res.write("Try localhost:6661/customer?    fname=Elaine&lname=Rushmore")
       res.end();
