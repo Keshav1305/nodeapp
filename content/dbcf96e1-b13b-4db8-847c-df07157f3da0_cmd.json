@@ -1,13 +1,13 @@
 {
-  "rev": "7-bc29da3402734bbeab07fc12d494599a",
-  "creator": "Adarsh Bhautoo",
+  "rev": "17-00aa53806092449f848ae87115e70954",
+  "creator": "Keith Byrne",
   "keywords": [],
   "kind": [],
-  "created": "2021-07-19T16:56:16.995Z",
+  "created": "2021-04-15T22:39:08.315Z",
   "libraryId": "77d05f48-8ade-4160-be16-09a97605c322",
-  "creatorId": "aec2c772-3e5a-459c-ab11-d9c5d520ab1f",
+  "creatorId": "93d87a80-90f5-422a-a1b9-f112fe33204d",
   "description": "",
-  "lastModifier": "Adarsh Bhautoo",
+  "lastModifier": "Aviraj Ramhith",
   "locale": "en",
   "classification": "content",
   "type": "Paragraph card",
@@ -49,7 +49,7 @@
     }
   },
   "name": "UK_Our Products>About Moventig_Pharmacotherapy_Prescribing Information",
-  "lastModifierId": "aec2c772-3e5a-459c-ab11-d9c5d520ab1f",
+  "lastModifierId": "a53c455d-dafc-405d-a6f6-c0a454cf5ae0",
   "typeId": "5175eb63-b451-4c26-a058-f2ad0e1084a7",
   "links": {
     "createDraft": {
@@ -66,8 +66,8 @@
     }
   },
   "id": "dbcf96e1-b13b-4db8-847c-df07157f3da0",
-  "lastModified": "2023-01-20T15:16:58.464Z",
-  "systemModified": "2023-01-20T15:16:58.464Z",
+  "lastModified": "2023-02-06T07:46:50.647Z",
+  "systemModified": "2023-02-06T07:46:50.647Z",
   "publishing": {
     "status": "not-available"
   },
