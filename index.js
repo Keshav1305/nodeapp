@@ -4,7 +4,10 @@ const wchtoolsAPI = require("wchtools-api");
 const login = require("wchtools-api/lib/loginREST").instance;
 const url = require("url");
 //Create a http server
-
+/**
+ * use /help?username=aviraj.ramhith@hangarww.com&password=Keshav@2021&env=a590dc33-59b3-4b9b-b542-612ac16a7b39 url
+ * change parameter to correct user
+ */
 http
   .createServer(function (req, res) {
     //get the query string from the request url
@@ -13,15 +16,14 @@ http
     let url = req.url.split("?") ? req.url.split("?")[0] : req.url;
     //check if the user is looking for the help url path
     if (url == "/help") {
-      // let params = query.split("&");
-      const current_url = new URL("http://test.com/?" + query);
-      const search_params = current_url.searchParams;
+      let current_url = new URL("http://test.com/?" + query);
+      let search_params = current_url.searchParams;
       if (
         search_params.has("username") &&
         search_params.has("password") &&
         search_params.has("env")
       ) {
-      console.log(search_params.get("username"));
+
         //write a response to send to the client
         let contextOptions = {
           //context url options not working
