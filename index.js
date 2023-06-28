@@ -1,80 +1,41 @@
-const http = require('http')
-const fs = require('fs')
-const wchtoolsAPI = require('wchtools-api')
-const wchtoolsCli = require('wchtools-cli')
+const http = require("http");
+const url = require("url");
+const { handlePullAssets, handlePushModifiedItems } = require("./handlers");
+const { formatErrorResponse } = require("./utils");
 
- //Create a http server
- http.createServer(function (req, res) {
-         //get the query string from the request url
-     let query = (req.url.split('?')) ?
- req.url.split('?')[1] : ""
-     //get the url string from the request url
-     let url = (req.url.split('?')) ?
- req.url.split('?')[0] : req.url
-     //check if the user is looking for the help url path
-     if(url == "/help"){
-         //write a response to send to the client
-         let  x = new wchtoolsAPI();
-         x.url = "https://content-eu-1.content-cms.com/api/a590dc33-59b3-4b9b-b542-612ac16a7b39";
-         
-         let pushMsg =  x.pushAllItems();
-         res.write(JSON.stringify(pushMsg));
-         res.write("Try localhost:6661/customer?    fname=Elaine&lname=Rushmore")
-         res.end();
-     }else if(url == "/customer"){
-          //if the user is requesting the customer url path
-          //if a query exists find the first and last name from it
-         if(query){
-             let fname = query.split('&')[0].split('=')[1]
-             let lname = query.split('&')[1].split('=')[1]
-             let name = fname + " " + lname
-             let output = 'none'
+// Configuration
+const config = {
+  port: 6661,
+  wchAPIBaseUrl: "https://content-eu-1.content-cms.com/api/",
+};
 
-     //read the json file for customer
-     readFile('customers.json').then(function(data){
-                 //loop through all the customers
-                 for(const customer of data){
-                     //check if the customer name in the record  matches the name in the query
-                     if(customer.name == name){
-                     //if they match, set output to be the customer data
-                         output = customer
-                     }
-                 }
-                 if(output != 'none'){
-                         //send the output to the client if a customer was  found
-                     res.write(JSON.stringify(output))
-                     res.end();
-                 } else {
-                     //send a response to the client if no customer data found
-                     res.write('no customer data for: ' + name)
-                     res.end();
-                 }
-             })
-         }
-     } else {
-         //redirect all other url paths to the help path
-         res.writeHead(302,  {Location: "/help"})
-         res.end();
-     }
-   }).listen(6661, function(){
-         //listen on port 6661
-    console.log("server start at port 6661");
-   });
+// Server
+http.createServer(async function (req, res) {
+  const endpoint = url.parse(req.url).pathname;
 
- //create a function that takes a file path
-   function readFile(filePath) {
-     return new Promise(function(resolve, reject) {
-         //perform the readFile function in the fs node module
-       fs.readFile(filePath, 'utf8', function(err, data) {
-         if (err) {
-                 //reject any errors found
-           reject(err)
-         } else {
-                 //parse the file output into JSON
-           data = JSON.parse(data)
-           //send the data back as promise
-           resolve(data)
-         }
-       })
-     })
-   }
+  try {
+    if (endpoint === "/pull-assets") {
+      // Handle pullAssets endpoint
+      await handlePullAssets(req, res, config);
+    } else if (endpoint === "/push-items") {
+      // Handle pushModifiedItems endpoint
+      await handlePushModifiedItems(req, res, config);
+    } else {
+      // Invalid endpoint
+      res.writeHead(404, { "Content-Type": "text/plain" });
+      res.end("Invalid endpoint");
+    }
+  } catch (error) {
+    const response = formatErrorResponse(error);
+    console.log("catch index:", response);
+    // res.writeHead(response.statusCode, { "Content-Type": response.contentType });
+    //res.end(JSON.stringify(response.body));
+
+    // Send the error response back to the .NET app
+    const errorResponse = JSON.stringify(response.body);
+    res.writeHead(200, { "Content-Type": "application/json" });
+    res.end(errorResponse);
+  }
+}).listen(config.port, function () {
+  console.log(`Server started on port ${config.port}`);
+});
